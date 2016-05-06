@@ -29,7 +29,7 @@ export default class PuzzleGrid extends React.Component {
             <div>
                 <ValuesSelector values={[]} maxValue={3} onSelect={this.handleValuesSelect} />
                 <table style={tableStyle}>
-                    {this.props.state.cells.map(this.toBoxes.bind(this))}
+                    <tbody>{this.props.state.cells.map(this.toBoxes.bind(this))}</tbody>
                 </table>
             </div>
         );
