@@ -10,8 +10,6 @@ renderingState.cells[0][1].values = [2,3];
 renderingState.cells[1][2].values = [3];
 
 ReactDOM.render(
-    <div>
-        <PuzzleGrid state={renderingState}/>
-    </div>,
+    <PuzzleGrid state={renderingState}/>,
     document.getElementById('app')
 );
