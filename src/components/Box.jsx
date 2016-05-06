@@ -14,7 +14,7 @@ export default class Box extends React.Component {
         };
 
         var boxStyle = {
-            display: '-webkit-flex',
+            display: 'flex',
             width: '100px',
             height: '100px',
             padding: '5px'
@@ -22,36 +22,27 @@ export default class Box extends React.Component {
 
         var annotationStyle = {
             textAlign: 'right',
-            WebKitFlexGrow: 1,
-            flexGrow: 1,
-            flex: 1,
+            flexGrow: 6,
+            flex: 6,
             fontSize: 18
         };
 
         var valueStyle = {
             fontWeight: 'bold',
-            display: '-webkit-flex',
-            WebKitAlignItems: 'center',
+            display: 'flex',
             alignItems: 'center',
-            WebKitJustifyContent: 'center',
             justifyContent: 'center',
-            WebKitFlexGrow: 1,
-            flexGrow: 1,
-            flex: 1,
+            flexGrow: 6,
+            flex: 6,
             fontSize: 50
         };
 
         var labelStyle = {
             fontWeight: 'bold',
-            WebKitFlexGrow: 1,
             flexGrow: 1,
             flex: 1,
             fontSize: 24
         };
-
-        // var values = [1, 2, 3, 4, 5, 6];
-        // <div style = {valueStyle}> 4 </div>
-        // <div style = {annotationStyle}> {values.join(", ")} </div>
 
         function showValues(values) {
             if(values.length == 1) {
