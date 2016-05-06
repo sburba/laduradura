@@ -10,7 +10,7 @@ export default {
 			values: []
 		 }, {
 			label: '2',
-			walls: { top: true, right: true, down: true, left: true }
+			walls: { top: true, right: true, down: true, left: true },
 			values: []
 		 }],
 		[{
