@@ -50,3 +50,7 @@ Operator constraint functions
 * /
 
     max(cage cells) / min(cage cells) == target
+
+## Development
+Install nodejs latest from here: https://nodejs.org/en/
+run `npm start` in the root of the project directory
