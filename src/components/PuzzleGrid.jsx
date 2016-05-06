@@ -10,6 +10,12 @@ export default class PuzzleGrid extends React.Component {
 		this.handleValuesSelect = this.handleValuesSelect.bind(this);
 	}
 
+    toBoxes(row, rowId) {
+        return <tr key={rowId}>
+            {row.map( (cell, columnId) => <Box key={rowId + ' ' + columnId} {...cell}/>)}
+        </tr>
+    }
+
 	handleValuesSelect(values) {
 		
 	}
