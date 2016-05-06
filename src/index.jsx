@@ -4,6 +4,8 @@ import PuzzleGrid from './components/PuzzleGrid.jsx'
 import state from '../samples/simple-3.rendering';
 
 ReactDOM.render(
-    <PuzzleGrid state={state}/>,
+    <div>
+		<PuzzleGrid state={state} />
+    </div>,
     document.getElementById('app')
 );
