@@ -4,33 +4,36 @@ export default {
 		[{ 
 			label: '2-', 
 			walls: { top: true, right: false, down: true, left: true },
-			annotation: [],
-			value: undefined
+			values: []
 		 }, {
-			walls: { top: true, right: true, down: true, left: false }
+			walls: { top: true, right: true, down: true, left: false },
+			values: []
 		 }, {
 			label: '2',
 			walls: { top: true, right: true, down: true, left: true }
 		 }],
 		[{
-			walls: {},
-			annotations: []
+			label: '2\u00F7'
+			walls: { top: true, right: true, down: false, left: true },
+			values: []
 		}, {
-			walls: {},
-			annotations: []
+			label: '3\u00F7',
+			walls: { top: true, right: false, down: true, left: true },
+			values: []
 		}, {
-			walls: {},
-			annotations: []
+			walls: { top: true, right: true, down: true, left: false },
+			values: []
 		}],
 		[{
-			walls: {},
-			annotations: []
+			walls: { top: false, right: true, down: true, left: true },
+			values: []
 		}, {
-			walls: {},
-			annotations: []
+			label: '1-'
+			walls: { top: true, right: false, down: true, left: true },
+			values: []
 		}, {
-			walls: {},
-			annotations: []
+			walls: { top: true, right: true, down: true, left: false },
+			values: []
 		}]
 	]
-};
+}
