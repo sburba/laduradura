@@ -12,7 +12,7 @@ export default class ValuesSelector extends React.Component {
 
 		return (
 			<div>
-				<ValuesSelectorButton value={1} />
+				<ValuesSelectorButton value={1} selected={true} />
 			</div>
 		);
 	}
