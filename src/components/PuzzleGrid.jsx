@@ -8,11 +8,20 @@ export default class PuzzleGrid extends React.Component {
 		super(props);
 		
 		this.handleValuesSelect = this.handleValuesSelect.bind(this);
+        this.state = {
+            valuesSelectorOwner: null,
+        };
 	}
+    
+    onBoxClick(rowId, columnId) {
+        this.setState({
+            valuesSelectorOwner: [rowId, columnId],
+        });
+    }
 
     toBoxes(row, rowId) {
         return <tr key={rowId}>
-            {row.map( (cell, columnId) => <Box key={rowId + ' ' + columnId} {...cell}/>)}
+            {row.map( (cell, columnId) => <Box key={rowId + ' ' + columnId} onClick={this.onBoxClick.bind(this, rowId, columnId)} selected={this.state.valuesSelectorOwner && this.state.valuesSelectorOwner[0] === rowId && this.state.valuesSelectorOwner[1] === columnId}  {...cell}/>)}
         </tr>
     }
 
@@ -27,7 +36,7 @@ export default class PuzzleGrid extends React.Component {
 
         return (
             <div>
-                <ValuesSelector values={[]} maxValue={3} onSelect={this.handleValuesSelect} />
+                <ValuesSelector values={[]} maxValue={3} onSelect={this.handleValuesSelect} activatedFor={this.state.valuesSelectorOwner} />
                 <table style={tableStyle}>
                     <tbody>{this.props.state.cells.map(this.toBoxes.bind(this))}</tbody>
                 </table>

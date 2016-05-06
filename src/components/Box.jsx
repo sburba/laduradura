@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default class Box extends React.Component {
-
+    
     render() {
         var openStyle = '1px solid black';
         var closedStyle = '5px solid black';
@@ -17,7 +17,8 @@ export default class Box extends React.Component {
             display: 'flex',
             width: '100px',
             height: '100px',
-            padding: '5px'
+            padding: '5px',
+            backgroundColor: this.props.selected ? 'cyan' : 'white',
         };
 
         var annotationStyle = {
@@ -54,7 +55,7 @@ export default class Box extends React.Component {
 
         return (
             <td style={tdStyle}>
-                <div style={boxStyle}>
+                <div style={boxStyle} onClick={this.props.onClick}>
                     <div style={labelStyle}> {this.props.label}</div>
                     {showValues(this.props.values)}
                 </div>

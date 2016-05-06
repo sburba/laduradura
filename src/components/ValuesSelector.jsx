@@ -28,10 +28,21 @@ export default class ValuesSelector extends React.Component {
 
 		this.setState({ values });
 	}
+    
+    getStyles() {
+        return {
+            border: '1px solid black',
+            borderRadius: '10px',
+            position: 'absolute',
+            top: '20%',
+            left: '20%',
+            display: this.props.activatedFor ? 'block' : 'none',
+        };
+    }
 
 	render() {
 		return (
-			<div>
+			<div style={this.getStyles()}>
 				{this.state.values.map( (selected, idx) => 
 					<ValuesSelectorButton selected={selected} label={idx} onChange={this.handleChange} /> 
 				)}		
