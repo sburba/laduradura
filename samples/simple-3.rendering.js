@@ -11,6 +11,7 @@ export default {
 		 }, {
 			label: '2',
 			walls: { top: true, right: true, down: true, left: true }
+			values: []
 		 }],
 		[{
 			label: '2\u00F7',
