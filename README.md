@@ -54,3 +54,4 @@ Operator constraint functions
 ## Development
 Install nodejs latest from here: https://nodejs.org/en/
 run `npm start` in the root of the project directory
+That will start a server at localhost:8080 with index.html at the root
