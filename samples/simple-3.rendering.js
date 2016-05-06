@@ -1,4 +1,4 @@
-{
+export default {
 	extent: 3,
 	cells: [
 		[{ 
@@ -33,4 +33,4 @@
 			annotations: []
 		}]
 	]
-}
+};
