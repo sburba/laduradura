@@ -1,6 +1,8 @@
 import {expect} from 'chai';
 
-import * as module from '../src/converters/storageToRender';
+import storageToRender, * as module from '../src/converters/storageToRender';
+import storage from '../samples/simple-3.storage';
+import rendering from '../samples/simple-3.rendering';
 
 describe('storageToRender', function () {
     describe('upperLeftMost', function () {
@@ -9,5 +11,8 @@ describe('storageToRender', function () {
             var cells = [ [1,0], upperLeftmost ];
             expect(module.upperLeftmostCell(cells)).to.equal(upperLeftmost);
         })
+    });
+    it('converts sample storage to sample render', function () {
+        expect(storageToRender(storage)).to.deep.equal(rendering);
     });
 });
