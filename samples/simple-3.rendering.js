@@ -13,7 +13,7 @@ export default {
 			walls: { top: true, right: true, down: true, left: true }
 		 }],
 		[{
-			label: '2\u00F7'
+			label: '2\u00F7',
 			walls: { top: true, right: true, down: false, left: true },
 			values: []
 		}, {
@@ -28,7 +28,7 @@ export default {
 			walls: { top: false, right: true, down: true, left: true },
 			values: []
 		}, {
-			label: '1-'
+			label: '1-',
 			walls: { top: true, right: false, down: true, left: true },
 			values: []
 		}, {
