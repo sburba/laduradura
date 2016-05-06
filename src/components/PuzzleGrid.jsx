@@ -4,11 +4,15 @@ import ValuesSelector from './ValuesSelector'
 
 export default class PuzzleGrid extends React.Component {
 
-    toBoxes(row, rowId) {
-        return <tr key={rowId}>
-            {row.map( (cell, columnId) => <Box key={rowId + ' ' + columnId} {...cell}/>)}
-        </tr>
-    }
+	constructor(props) {
+		super(props);
+		
+		this.handleValuesSelect = this.handleValuesSelect.bind(this);
+	}
+
+	handleValuesSelect(values) {
+		
+	}
 
     render() {
         var tableStyle = {
@@ -17,7 +21,7 @@ export default class PuzzleGrid extends React.Component {
 
         return (
             <div>
-                <ValuesSelector />
+                <ValuesSelector values={[]} maxValue={3} onSelect={this.handleValuesSelect} />
                 <table style={tableStyle}>
                     {this.props.state.cells.map(this.toBoxes.bind(this))}
                 </table>
