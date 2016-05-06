@@ -12,8 +12,7 @@ export default class Box extends React.Component {
             borderTop: this.props.walls.top ? openStyle : closedStyle,
             borderBottom: this.props.walls.down ? openStyle : closedStyle,
             width: '100px',
-            height: '100px',
-            display: 'inline-block'
+            height: '100px'
         };
 
         var annotationStyle = {
@@ -38,7 +37,7 @@ export default class Box extends React.Component {
         // <div style = {valueStyle}> {this.props.value} </div>
         // <div style = {annotationStyle}> {this.props.values} </div>
 
-        return  <div style={boxStyle}>
+        return  <td style={boxStyle}>
                     <table>
                         <tbody>
                             <tr width="100%">
@@ -56,6 +55,6 @@ export default class Box extends React.Component {
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                </td>
     }
 }
