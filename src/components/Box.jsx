@@ -6,55 +6,59 @@ export default class Box extends React.Component {
         var openStyle = '1px solid black';
         var closedStyle = '5px solid black';
 
-        var boxStyle = {
+        var tdStyle = {
             borderLeft: this.props.walls.left ? closedStyle : openStyle,
             borderRight: this.props.walls.right ? closedStyle : openStyle,
             borderTop: this.props.walls.top ? closedStyle : openStyle,
-            borderBottom: this.props.walls.down ? closedStyle : openStyle,
+            borderBottom: this.props.walls.down ? closedStyle : openStyle
+        };
+
+        var boxStyle = {
+            display: 'flex',
             width: '100px',
-            height: '100px'
+            height: '100px',
+            padding: '5px'
         };
 
         var annotationStyle = {
-            textAlign: 'right'
+            textAlign: 'right',
+            flexGrow: 6,
+            flex: 6,
+            fontSize: 18
         };
 
         var valueStyle = {
             fontWeight: 'bold',
             display: 'flex',
-            justifyContent: 'center',
             alignItems: 'center',
-            width: '100%',
-            height: '100%'
+            justifyContent: 'center',
+            flexGrow: 6,
+            flex: 6,
+            fontSize: 50
         };
 
         var labelStyle = {
-            textAlign: 'left'
+            fontWeight: 'bold',
+            flexGrow: 1,
+            flex: 1,
+            fontSize: 24
         };
 
-        var values = ['1', '2', '3'];
+        function showValues(values) {
+            if(values.length == 1) {
+                return <div style={valueStyle}> {values}</div>;
+            } else {
+                return <div style={annotationStyle}> {values.join(", ")}</div>;
+            }
+        }
 
-        // <div style = {valueStyle}> {this.props.value} </div>
-        // <div style = {annotationStyle}> {this.props.values} </div>
-
-        return  <td style={boxStyle}>
-                    <table>
-                        <tbody>
-                            <tr width="100%">
-                                <td width="33%" height="100%">
-                                    <div style = {labelStyle}> {this.props.label}</div>
-                                </td>
-
-                                <td width="33%" height="100%">
-                                    <div style = {valueStyle}> 4 </div>
-                                </td>
-
-                                <td width="33%" height="100%">
-                                    <div style = {annotationStyle}> {values.join(", ")} </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
+        return (
+            <td style={tdStyle}>
+                <div style={boxStyle}>
+                    <div style={labelStyle}> {this.props.label}</div>
+                    {showValues(this.props.values)}
+                </div>
+            </td>
+        )
     }
 }
