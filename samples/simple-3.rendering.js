@@ -6,6 +6,7 @@ export default {
 			walls: { top: true, right: false, down: true, left: true },
 			values: []
 		 }, {
+             label: '',
 			walls: { top: true, right: true, down: true, left: false },
 			values: []
 		 }, {
@@ -22,10 +23,12 @@ export default {
 			walls: { top: true, right: false, down: true, left: true },
 			values: []
 		}, {
+            label: '',
 			walls: { top: true, right: true, down: true, left: false },
 			values: []
 		}],
 		[{
+            label: '',
 			walls: { top: false, right: true, down: true, left: true },
 			values: []
 		}, {
@@ -33,6 +36,7 @@ export default {
 			walls: { top: true, right: false, down: true, left: true },
 			values: []
 		}, {
+            label: '',
 			walls: { top: true, right: true, down: true, left: false },
 			values: []
 		}]

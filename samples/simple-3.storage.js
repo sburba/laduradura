@@ -1,4 +1,4 @@
-{
+export default {
 "extent": 3,
 "cages": [
 	{
