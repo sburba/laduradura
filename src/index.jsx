@@ -3,14 +3,9 @@ import ReactDOM from 'react-dom';
 import Box from './components/Box';
 import state from '../samples/simple-3.rendering';
 
-var openBorders = {
-    left: false,
-    right: false,
-    top: true,
-    bottom: true
-};
-
 ReactDOM.render(
-    <Box state={state.cells[0][0]}/>,
+    <div>
+        {state.cells.map((row) => row.map((cell) => <Box {...cell}/>).concat(<br/>))}
+    </div>,
     document.getElementById('app')
 );

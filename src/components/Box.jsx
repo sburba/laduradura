@@ -7,16 +7,16 @@ export default class Box extends React.Component {
         var closedStyle = '2px solid black';
 
         var boxStyle = {
-            borderLeft: this.props.state.walls.left ? openStyle : closedStyle,
-            borderRight: this.props.state.walls.right ? openStyle : closedStyle,
-            borderTop: this.props.state.walls.top ? openStyle : closedStyle,
-            borderBottom: this.props.state.walls.down ? openStyle : closedStyle,
+            borderLeft: this.props.walls.left ? openStyle : closedStyle,
+            borderRight: this.props.walls.right ? openStyle : closedStyle,
+            borderTop: this.props.walls.top ? openStyle : closedStyle,
+            borderBottom: this.props.walls.down ? openStyle : closedStyle,
             width: '100px',
             height: '100px'
         };
 
         var annotationStyle = {
-            textAlign: 'right',
+            textAlign: 'right'
         };
 
         var valueStyle = {
@@ -29,21 +29,20 @@ export default class Box extends React.Component {
         };
 
         var labelStyle = {
-            textAlign: 'left',
+            textAlign: 'left'
         };
 
         var values = ['1', '2', '3'];
 
-        // <div style = {valueStyle}> {this.props.state.value} </div>
-        // <div style = {annotationStyle}> {this.props.state.values} </div>
+        // <div style = {valueStyle}> {this.props.value} </div>
+        // <div style = {annotationStyle}> {this.props.values} </div>
 
-        console.log(this.props.state);
         return  <div style={boxStyle}>
                     <table>
                         <tbody>
                             <tr width="100%">
                                 <td width="33%" height="100%">
-                                    <div style = {labelStyle}> {this.props.state.label}</div>
+                                    <div style = {labelStyle}> {this.props.label}</div>
                                 </td>
 
                                 <td width="33%" height="100%">
