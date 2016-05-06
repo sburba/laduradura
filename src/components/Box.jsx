@@ -12,7 +12,8 @@ export default class Box extends React.Component {
             borderTop: this.props.walls.top ? openStyle : closedStyle,
             borderBottom: this.props.walls.down ? openStyle : closedStyle,
             width: '100px',
-            height: '100px'
+            height: '100px',
+            display: 'inline-block'
         };
 
         var annotationStyle = {
