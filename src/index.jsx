@@ -2,7 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Box from './components/Box';
 
+var openBorders = {
+    left: false,
+    right: false,
+    top: true,
+    bottom: true
+};
+
 ReactDOM.render(
-<Box leftIsOpen={false} rightIsOpen={true} topIsOpen={true} bottomIsOpen={true}/>,
+<Box openBorders={openBorders}/>,
     document.getElementById('app')
 );
