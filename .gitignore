@@ -38,3 +38,6 @@ node_modules
 
 # vim junk
 *.swp
+
+#webpack junk
+dist/bundle.js
