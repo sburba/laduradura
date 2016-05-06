@@ -4,13 +4,13 @@ export default class Box extends React.Component {
 
     render() {
         var openStyle = '1px solid black';
-        var closedStyle = '2px solid black';
+        var closedStyle = '5px solid black';
 
         var boxStyle = {
-            borderLeft: this.props.walls.left ? openStyle : closedStyle,
-            borderRight: this.props.walls.right ? openStyle : closedStyle,
-            borderTop: this.props.walls.top ? openStyle : closedStyle,
-            borderBottom: this.props.walls.down ? openStyle : closedStyle,
+            borderLeft: this.props.walls.left ? closedStyle : openStyle,
+            borderRight: this.props.walls.right ? closedStyle : openStyle,
+            borderTop: this.props.walls.top ? closedStyle : openStyle,
+            borderBottom: this.props.walls.down ? closedStyle : openStyle,
             width: '100px',
             height: '100px'
         };
