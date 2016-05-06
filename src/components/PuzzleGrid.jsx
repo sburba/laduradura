@@ -12,5 +12,4 @@ export default class PuzzleGrid extends React.Component {
 			</div>	
 		);
 	}
->>>>>>> ValuesSelector component
 }
