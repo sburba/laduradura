@@ -2,21 +2,6 @@ import React from 'react'
 import { isFunction } from 'lodash'
 
 export default class ValuesSelectorButton extends React.Component {
-    constructor(props) {
-        super(props);
-
-		this.onClick = this.onClick.bind(this);
-    }
-
-    onClick(e) {
-		e.preventDefault();
-
-		let { label, selected, onChange } = this.props;
-
-		if( isFunction(onChange) ) {
-			onChange( { label, selected: !selected })
-		}
-	}
     
     getButtonStyle() {
         return {
@@ -41,7 +26,7 @@ export default class ValuesSelectorButton extends React.Component {
     
 	render() {
 		return (
-			<div style={this.getButtonStyle()} onClick={this.onClick}>
+			<div style={this.getButtonStyle()} onClick={this.props.onClick}>
 				<span>{this.props.label}</span>
 			</div>
 		);

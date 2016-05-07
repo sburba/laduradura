@@ -1,9 +1,8 @@
 import React from 'react'
-import { partial } from 'lodash'
 import { connect } from 'react-redux'
+import { partial, noop } from 'lodash'
 import { selectBox } from '../actions'
 import Box from './Box.jsx'
-import ValuesSelector from './ValuesSelector'
 
 class PuzzleGrid extends React.Component {
 
@@ -12,15 +11,16 @@ class PuzzleGrid extends React.Component {
             borderCollapse: 'collapse'
         };
 
+		const selectBox = this.props.selectBox || noop;
+
         return (
             <div>
-				{/* <ValuesSelector values={selectedValues} maxValue={3} onSelect={chan} show="true" /> */}
                 <table style={tableStyle}>
 					<tbody>
 						{this.props.state.cells.map( (row, i) => 
 							<tr key={i}>
 								{ row.map( (cell, j) =>
-									<Box key={i + '-' + j} onClick={partial(this.props.selectBox, i, j)} {...cell} />	
+									<Box key={i + '-' + j} onClick={partial(selectBox, i, j)} {...cell} />	
 								)}
 							</tr>
 						)}
