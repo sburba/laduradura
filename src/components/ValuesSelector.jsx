@@ -14,7 +14,7 @@ export default class ValuesSelector extends React.Component {
 		this.handleChange = this.handleChange.bind(this);
 	}
 
-	onComponentWillReceiveProps(nextProps) {
+	componentWillReceiveProps(nextProps) {
 		this.setState({ values: this.mapPropsToState(nextProps) })
 	}
 
@@ -24,19 +24,24 @@ export default class ValuesSelector extends React.Component {
 
 	handleChange(e) {
 		let values = this.state.values || [];
-		values[e.label] = e.selected;
+		values[e.label - 1] = e.selected;
 
 		this.setState({ values });
+
+		let onSelect = this.props.onSelect;
+		if( onSelect ) {
+			onSelect( values.map( ( selected, i ) => selected ? i+1 : -1 ).filter( val => val > 0 ) );
+		}
 	}
     
     getStyles() {
         return {
             border: '1px solid black',
             borderRadius: '10px',
-            position: 'absolute',
-            top: '20%',
-            left: '20%',
-            display: this.props.activatedFor ? 'block' : 'none',
+            //position: 'absolute',
+            //top: '20%',
+            //left: '20%',
+            display: this.props.show ? 'block' : 'none',
         };
     }
 
@@ -44,13 +49,13 @@ export default class ValuesSelector extends React.Component {
 		return (
 			<div style={this.getStyles()}>
 				{this.state.values.map( (selected, idx) => 
-					<ValuesSelectorButton selected={selected} label={idx} onChange={this.handleChange} /> 
+					<ValuesSelectorButton key={idx} selected={selected} label={idx + 1} onChange={this.handleChange} /> 
 				)}		
 			</div>
 		);
 	}
 
 	mapPropsToState(props) {
-		return range(props.maxValue).map( i => indexOf(this.props.values, i) >= 0 )
+		return range(props.maxValue).map( i => indexOf(props.values, i+1) >= 0 )
 	}
 }

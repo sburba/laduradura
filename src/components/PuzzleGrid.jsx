@@ -1,46 +1,40 @@
 import React from 'react'
-import Box from './Box.jsx';
+import { partial } from 'lodash'
+import { connect } from 'react-redux'
+import { selectBox } from '../actions'
+import Box from './Box.jsx'
 import ValuesSelector from './ValuesSelector'
 
-export default class PuzzleGrid extends React.Component {
-
-	constructor(props) {
-		super(props);
-		
-		this.handleValuesSelect = this.handleValuesSelect.bind(this);
-        this.state = {
-            valuesSelectorOwner: null,
-        };
-	}
-    
-    onBoxClick(rowId, columnId) {
-        this.setState({
-            valuesSelectorOwner: [rowId, columnId],
-        });
-    }
-
-    toBoxes(row, rowId) {
-        return <tr key={rowId}>
-            {row.map( (cell, columnId) => <Box key={rowId + ' ' + columnId} onClick={this.onBoxClick.bind(this, rowId, columnId)} selected={this.state.valuesSelectorOwner && this.state.valuesSelectorOwner[0] === rowId && this.state.valuesSelectorOwner[1] === columnId}  {...cell}/>)}
-        </tr>
-    }
-
-	handleValuesSelect(values) {
-		
-	}
+class PuzzleGrid extends React.Component {
 
     render() {
-        var tableStyle = {
+        const tableStyle = {
             borderCollapse: 'collapse'
         };
 
         return (
             <div>
-                <ValuesSelector values={[]} maxValue={3} onSelect={this.handleValuesSelect} activatedFor={this.state.valuesSelectorOwner} />
+				{/* <ValuesSelector values={selectedValues} maxValue={3} onSelect={chan} show="true" /> */}
                 <table style={tableStyle}>
-                    <tbody>{this.props.state.cells.map(this.toBoxes.bind(this))}</tbody>
+					<tbody>
+						{this.props.state.cells.map( (row, i) => 
+							<tr key={i}>
+								{ row.map( (cell, j) =>
+									<Box key={i + '-' + j} onClick={partial(this.props.selectBox, i, j)} {...cell} />	
+								)}
+							</tr>
+						)}
+					</tbody>
                 </table>
             </div>
         );
     }
 }
+
+const mapStateToProps = (state, ownProps) => ({ state: state.puzzle })
+
+const mapDispatchToProps = (dispatch, ownProps) => ({ 
+	selectBox: (row, col) => dispatch(selectBox(row, col))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PuzzleGrid);
