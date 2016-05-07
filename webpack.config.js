@@ -22,8 +22,12 @@ module.exports = {
         filename: 'bundle.js'
     },
     devServer: {
+		headers: { 'Access-Control-Allow-Origin': '*' },
         contentBase: './dist',
-        hot: true
+        hot: true,
+		proxy: {
+			'/puzzles/*': 'http://app.kenkenpuzzle.com/kenken/'
+		}
     },
     devtool: 'source-map',
     plugins: [

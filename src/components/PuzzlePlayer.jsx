@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import DailyPuzzleSelector from './DailyPuzzleSelector'
 import PuzzleGrid from './PuzzleGrid'
 import ValuesSelector from './ValuesSelector'
 
@@ -9,6 +10,9 @@ export default class PuzzlePlayer extends React.Component {
 
 		return (
 			<div>
+				<div>
+					<DailyPuzzleSelector />
+				</div>
 				<PuzzleGrid />
 				<ValuesSelector />
 			</div>

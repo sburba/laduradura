@@ -1,3 +1,5 @@
+export { LOAD_DAILY_PUZZLE, loadDailyPuzzle } from '../daily-puzzles/actions'
+
 export const SELECT_BOX = 'SELECT_BOX'
 export const SET_MODE = 'SET_MODE'
 export const TOGGLE_CELL_VALUE = 'TOGGLE_CELL_VALUE'
