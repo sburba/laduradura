@@ -5,9 +5,9 @@ export default class ValuesSelectorButton extends React.Component {
     
     getButtonStyle() {
         return {
-            backgroundColor: this.props.selected ? 'purple' : 'skyblue',
-            color: 'white',
-            border: '2px solid ' + (this.props.selected ? 'skyblue' : 'purple'),
+            backgroundColor: !this.props.selected ? 'lightgray' : 'white',
+            color: 'black',
+            border: '2px solid ' + (!this.props.selected ? 'lightgray' : 'black'),
             display: 'inline-block',
             margin: '2px',
             borderRadius: '35%',

@@ -9,8 +9,7 @@ class ValuesSelector extends React.Component {
 	render() {
 		const { maxValue, values, show, selectValue } = this.props,
 			style = {
-				border: '1px solid black',
-				borderRadius: '10px',
+				padding: '5px',
 				display: show ? 'block' : 'none',
 			};
 

@@ -13,9 +13,9 @@ class App extends React.Component {
 		return (
 			<div>	
 				{isPlayerMode ? <PuzzlePlayer /> : <PuzzleBuilder /> }
-				<button onClick={ () => this.props.setMode(otherMode) } >
+				{/*<button onClick={ () => this.props.setMode(otherMode) } >
 					{`Load in ${otherMode}`}
-				</button>
+				</button> */}
 			</div>
 		);
 	}

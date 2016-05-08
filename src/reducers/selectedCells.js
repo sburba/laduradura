@@ -1,5 +1,5 @@
 import update from 'react-addons-update'
-import { SELECT_BOX, SET_MODE } from '../actions'
+import { SELECT_BOX, SET_MODE, LOAD_DAILY_PUZZLE } from '../actions'
 
 const getSelectedCells = (state) => {
 	const cells = [],
@@ -19,6 +19,7 @@ export default function selectedCells(state, action) {
 	switch(action.type) {
 		case SELECT_BOX:
 		case SET_MODE:
+		case LOAD_DAILY_PUZZLE: 
 			return getSelectedCells(state);
 		default:
 			return state;

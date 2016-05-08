@@ -15,10 +15,10 @@ export default class Box extends React.Component {
 
         var boxStyle = {
             display: 'flex',
-            width: '100px',
-            height: '100px',
+            width: '90px',
+            height: '90px',
             padding: '5px',
-            backgroundColor: this.props.selected ? 'cyan' : 'white',
+            backgroundColor: this.props.selected ? '#EAE8E8' : 'white',
         };
 
         var annotationStyle = {

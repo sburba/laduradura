@@ -1,6 +1,6 @@
 import update from 'react-addons-update'
 import { flow, clone } from 'lodash'
-import { SELECT_BOX, SET_MODE, TOGGLE_CELL_VALUE } from '../actions'
+import { SELECT_BOX, SET_MODE, TOGGLE_CELL_VALUE, LOAD_DAILY_PUZZLE } from '../actions'
 
 const updateShowing = (state) => {
 	const wasShowing = state.valuesSelector.show || false,
@@ -31,6 +31,7 @@ export default function valuesSelector(state, action) {
 		case SELECT_BOX:
 		case SET_MODE:
 		case TOGGLE_CELL_VALUE:
+		case LOAD_DAILY_PUZZLE:
 			return updateState(state);
 		default:
 			return state;
