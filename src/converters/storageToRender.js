@@ -1,6 +1,7 @@
 import _ from 'lodash';
 
 const divSymbol = '\u00F7';
+const multSymbol = 'x';
 
 /** 
  * Determine the upper leftmost cell from a collection
@@ -32,6 +33,9 @@ export function cageLabel(cage) {
     case '/':
         result += divSymbol;
         break;
+	case '*':
+		result += multSymbol;
+		break;
     default:
         result += cage.operator;
     }

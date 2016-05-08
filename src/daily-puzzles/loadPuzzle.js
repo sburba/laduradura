@@ -1,6 +1,7 @@
 import $ from 'jquery'
 import moment from 'moment'
 import levels from './difficulty'
+import { dailyToRender } from '../converters'
 
 const dailyPuzzleUrl = difficulty => {
 	let month = moment().format('MMMM'), 
@@ -16,7 +17,8 @@ export default function loadPuzzle(id) {
 		$.ajax({
 			url: dailyPuzzleUrl(difficulty),
 			dataType: 'text',
-			success: ( data, status ) => console.log(data)
+			success: text => resolve( dailyToRender(text) ),
+			error: err => reject( err )
 		})
 	})
 }
