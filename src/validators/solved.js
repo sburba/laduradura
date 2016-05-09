@@ -1,5 +1,3 @@
-import _ from "lodash";
-
 export default function(puzzle, gameState) {
     function cageIsValid(cage) {
         var values = cage.cells.map(toCellValue);
@@ -16,20 +14,33 @@ export default function(puzzle, gameState) {
                 return Math.abs(values[0] - values[1]);
             case '+':
                 return values.reduce((first, second) => first + second);
-            case '÷':
+            case '/':
                 if (values.length !== 2) {
                     throw new Error('Cannot have a division operator with anything but two cells');
                 }
                 return Math.max(values[0] / values[1], values[1] / values[0]);
             case '×':
                 return values.reduce((first, second) => first * second);
+            case '=':
+                if (values.length !== 1) {
+                    throw new Error('Cannot have an equals operator with more than one cell');
+                }
+                return values[0];
             default:
                 throw new Error('Unknown operator ' + operator);
         }
     }
 
+    function range(start, length) {
+        var array = [];
+        for (var i = start; i < length; i++) {
+            array.push(i);
+        }
+        return array;
+    }
+
     function isValidNumberSet(values) {
-        return _.range(values.length).every((number) => values.indexOf(number) > -1)
+        return range(1, values.length).every((number) => values.indexOf(number) > -1)
     }
 
     function cellGroupToValueGroup(cellGroup) {
@@ -61,10 +72,10 @@ export default function(puzzle, gameState) {
     }
 
     function toCellValue(cell) {
-        var column = cell[0];
-        var row = cell[1];
+        var row = cell[0];
+        var column = cell[1];
 
-        return gameState.cells[row][column];
+        return gameState.cells[row][column].values[0];
     }
 
     let rowsAreValid = getRows(gameState).map(cellGroupToValueGroup).every(isValidNumberSet);
