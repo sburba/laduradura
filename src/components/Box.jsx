@@ -22,34 +22,34 @@ export default class Box extends React.Component {
             fontSize: 90,
         };
 
+        var valuesStyle = {
+            /*textAlign: 'right',*/
+/*            flexGrow: 6,*/
+            flex: '6 0 auto',
+            flexFlow: 'row wrap',
+            alignContent: 'center',
+            alignItems: 'center',
+            justifyContent: 'center',
+        };
+
         var valueStyle2 = {
-            textAlign: 'right',
-            flexGrow: 6,
-            flex: 6,
+            flex: '0 1 auto',
+            alignSelf: 'auto',
+            minWidth: 0,
+            minHeight: 'auto',
             fontSize: '55%',
         };
 
         var valueStyle3_4 = {
-            textAlign: 'right',
-            flexGrow: 6,
-            flex: 6,
             fontSize: '40%',
         };
 
         var valueStyle5_ = {
-            textAlign: 'right',
-            flexGrow: 6,
-            flex: 6,
             fontSize: '30%',
         };
 
         var valueStyle1 = {
             fontWeight: 'bold',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexGrow: 6,
-            flex: 6,
             fontSize: '80%',
         };
 
@@ -60,15 +60,21 @@ export default class Box extends React.Component {
             fontSize: '24%',
         };
 
+        function showStyledValues(values, styleName) {
+            return values.map( (item) =>
+                <div style={styleName}>{item}</div>
+                             );
+        }
+
         function showValues(values) {
             if(values.length == 1) {
-                return <div style={valueStyle1}> {values}</div>;
+                return showStyledValues(values, valueStyle1);
             } else if(values.length == 2) {
-                return <div style={valueStyle2}> {values.join(" ")}</div>;
+                return showStyledValues(values, valueStyle2);
             } else if(values.length < 5) {
-                return <div style={valueStyle3_4}> {values.join(" ")}</div>;
+                return showStyledValues(values, valueStyle3_4);
             } else {
-                return <div style={valueStyle5_}> {values.join(" ")}</div>;
+                return showStyledValues(values, valueStyle5_);
             }
         }
 
@@ -76,7 +82,7 @@ export default class Box extends React.Component {
             <td style={tdStyle}>
                 <div style={boxStyle} onClick={this.props.onClick}>
                     <div style={labelStyle}> {this.props.label}</div>
-                    {showValues(this.props.values)}
+                    <div style={valuesStyle}> {showValues(this.props.values)}</div>
                 </div>
             </td>
         )
