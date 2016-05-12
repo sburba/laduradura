@@ -19,37 +19,56 @@ export default class Box extends React.Component {
             height: '90px',
             padding: '5px',
             backgroundColor: this.props.selected ? '#EAE8E8' : 'white',
+            fontSize: 90,
         };
 
-        var annotationStyle = {
+        var valueStyle2 = {
             textAlign: 'right',
             flexGrow: 6,
             flex: 6,
-            fontSize: 18
+            fontSize: '55%',
         };
 
-        var valueStyle = {
+        var valueStyle3_4 = {
+            textAlign: 'right',
+            flexGrow: 6,
+            flex: 6,
+            fontSize: '40%',
+        };
+
+        var valueStyle5_ = {
+            textAlign: 'right',
+            flexGrow: 6,
+            flex: 6,
+            fontSize: '30%',
+        };
+
+        var valueStyle1 = {
             fontWeight: 'bold',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             flexGrow: 6,
             flex: 6,
-            fontSize: 50
+            fontSize: '80%',
         };
 
         var labelStyle = {
             fontWeight: 'bold',
             flexGrow: 1,
             flex: 1,
-            fontSize: 24
+            fontSize: '24%',
         };
 
         function showValues(values) {
             if(values.length == 1) {
-                return <div style={valueStyle}> {values}</div>;
+                return <div style={valueStyle1}> {values}</div>;
+            } else if(values.length == 2) {
+                return <div style={valueStyle2}> {values.join(" ")}</div>;
+            } else if(values.length < 5) {
+                return <div style={valueStyle3_4}> {values.join(" ")}</div>;
             } else {
-                return <div style={annotationStyle}> {values.join(", ")}</div>;
+                return <div style={valueStyle5_}> {values.join(" ")}</div>;
             }
         }
 
