@@ -1,3 +1,0 @@
-export default function storageToRender(storageObject) {
-    return renderObject;
-}

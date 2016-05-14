@@ -1,5 +1,5 @@
 import update from 'react-addons-update'
-import { without, indexOf } from 'lodash'
+import { without, indexOf, sortedIndex } from 'lodash'
 import { TOGGLE_CELL_VALUE } from '../actions'
 
 const updateValues = (state, row, col, op) =>
@@ -13,7 +13,7 @@ const updateCell = (state, action) => {
 			values = state.puzzle.cells[row][col].values,
 			op =  indexOf(values, action.value) >= 0 ?
 				{ $set: without(values, action.value) } :
-				{ $push: [action.value] };
+				{ $push: values.splice(sortedIndex(values, action.value), 0, action.value) };
 
 		return updateValues(state, row, col, op)	
 	}

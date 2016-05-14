@@ -17,8 +17,8 @@ export default class ValuesSelectorButton extends React.Component {
             verticalAlign: 'center',
             textAlign: 'center',
             msUserSelect: 'none',
-            mozUserSelect: 'none',
-            webkitUserSelect: 'none',
+            MozUserSelect: 'none',
+            WebkitUserSelect: 'none',
             userSelect: 'none',
             cursor: 'default',
         };
